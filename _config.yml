@@ -1,0 +1,21 @@
+# Site settings
+title: Christopher Mason
+email: cmason@cmason.com
+description: 
+  Software developer and manager who is passionate about creating
+  powerful and usable software that solves real world problems.  
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www2.cmason.com.com" # the base hostname & protocol for your site
+github_username:  cmason1978
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+gems:
+  - jekyll-paginate
+  - jekyll-babel
+
+babel_js_extensions: 'es6'
