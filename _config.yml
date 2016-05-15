@@ -8,6 +8,25 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www2.cmason.com.com" # the base hostname & protocol for your site
 github_username:  cmason1978
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+    
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+      excerpt_separator: <!--more-->
+#  - 
+#    scope:
+#      path: ""
+#      type: projects
+#    values:
+#      layout: project
+
 # Build settings
 markdown: kramdown
 

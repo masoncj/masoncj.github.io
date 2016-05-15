@@ -4,6 +4,33 @@ layout: default
 
 <div class="home">
 
+	<hr>
+  <h1 class="page-heading">Projects</h1>
+
+  <ul class="project-list">
+    {% for project in site.projects %}
+      <li>
+        <div class='project-container'>
+          <div class='project-icon'>
+            <img src="/images{{ project.url }}{{ project.icon }}"/>
+          </div>
+          <div class='project-info'>
+            <span class="post-meta">{{ project.date | date: "%b %-d, %Y" }}</span>
+            <h2>
+              <a class="post-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
+            </h2>
+            <p>{{ project.excerpt }}</p>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
+
+<div class="home">
+
+  <hr>
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
@@ -18,6 +45,6 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
 </div>
+
+

@@ -1,0 +1,25 @@
+
+/* Projects */
+.project-list {
+  overflow: auto;  // Clear floats.
+
+  li {
+    list-style: none;
+  }
+  .project-container {
+    clear: both;
+  }
+
+  .project-icon {
+    width: 128px;
+    height: 128px;
+    float: left;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .project-info {
+    padding: 10px;
+  }
+}
+
