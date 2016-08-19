@@ -9,17 +9,34 @@
   .project-container {
     clear: both;
   }
+  
+  h2, ul {
+    margin-bottom: 0px;
+  }
+
+  @import "tags";
 
   .project-icon {
+    border: 2px solid black;
     width: 128px;
     height: 128px;
     float: left;
+    margin-top: 5px;
     margin-bottom: 20px;
-    padding: 10px;
+    margin-right: 10px;
   }
 
   .project-info {
     padding: 10px;
+    
+    p:empty {
+      display: none;
+    }
+    
+    p {
+      line-height: 16px;
+      margin-top: 8px;
+    }
   }
 }
 

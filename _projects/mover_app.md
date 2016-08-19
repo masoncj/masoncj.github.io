@@ -3,16 +3,18 @@ layout: project
 title: Mover App
 date: 2015-01-15
 icon: mover_app_icon.png
+tags:
+  - Visualization
+  - Robotics
+  - Coffeescript
+  - WebGL
 ---
-
-
 A WebGL 3D user-interface for training robots!
-
 <!--more-->
 
 
 
-Counsyl's mission is to **democratize individual's access to their own genetic information** and make it actionable.  Automation is key to achieving the industry-lowest cost that enables wider access to genetic testing.  Therefore, Counsyl has multiple robotic work-cells for both DNA extraction and genotyping/sequencing.  Moreover, Counsyl has a unique proclivity towards developing and **owning the entire stack in-house**, from hardware to software to infrastructure.  Counsyl originally employed a commercially available platform from a major robotics vendor to orchestrate the many individual robots and instruments in the cells.  However, glitches were common, performance was limited and customization wasn't possible -- so a custom solution was sought.
+Counsyl's mission is to **democratize individual's access to their own genetic information** and make it actionable.  Automation is key to achieving the lowest-in-the-industry cost that enables wider access to genetic testing.  Therefore, Counsyl has multiple robotic work-cells for both DNA extraction and genotyping/sequencing.  Moreover, Counsyl has a unique proclivity towards developing and **owning the entire stack in-house**, from hardware to software to infrastructure.  Counsyl originally employed a commercially available platform from a major robotics vendor to orchestrate the many individual robots and instruments in the cells.  However, glitches were common, performance was limited and customization wasn't possible -- so a custom solution was sought.
 
 I wrote an application that **captures and stores the positions in physical space** where various instruments reside.  A **web user interface allows users to see and connect** these positions into graphs of possible moves.  Finally these paths and poses can be carefully vetted on the actual robots to prevent disaster when real blood and DNA are loaded into the plates and tubes being moved.
 
@@ -30,6 +32,16 @@ A graph of tube positions on plates.  Among several styles of robot supported by
 * **Client**: Coffescript/Bootstrap models and logic
 * **Visualization**: Scene.JS 3D Scene-Graph library
 
+
+#### My Role
+
+Mover app was initially implemented as a rotation project in the first several months after joining Counsyl and then continued as a 20% time project when I landed in a different group.
+
+* Interfaced with key stake-holders and gathered requirements.
+* Designed data models, API.
+* Worked alongside another developer on server-side code.
+* Personally implemented entire client UI.
+* Performed user-testing and improved user experience.
 
 
 #### Lessons Learned
