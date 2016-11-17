@@ -12,13 +12,17 @@ tags:
 Improved accuracy of machine-generated insurance cost estimates through manual curation using this D3- and crossfilter-based visualization tool.
 <!--more-->
 
-Counsyl's mission to make genomics useful and accessible to everyone includes making it affordable and understandable.  
 
-{% assign insurance_estimates = site.projects | where: 'slug', 'insurance_estimates' %}
+As part of our commitment to pricing transparency, Counsyl prepares an individual [price estimate]({% link _projects/insurance_estimates.md %}) for each patient based on their unique insurance benefits.  
 
-Counsyl prepares an individual [price estimate]({{ insurance_estimates[0].url }}) for each patient based on their unique insurance benefits.  
+To ensure that these estimates are accurate, we built a manual review tool that lets us investigate 
 
-To ensure that these estimates are accurate, we built a manual review tool that lets us investigate
+The tool 
+A/B
+
+
+
+
 
 Manual curation.
 The tool also allows speculation about different pricing regimes. 
@@ -30,6 +34,9 @@ Filtering
 ![Comparison Tool Screenshot](/images/projects/comparison_tool/comparison_tool_filter.png)
 
 
+Lessons learned:
+
+Importance of speculative tools.
 
 
 
