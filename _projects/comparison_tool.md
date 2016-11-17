@@ -13,7 +13,7 @@ Improved accuracy of machine-generated insurance cost estimates through manual c
 <!--more-->
 
 
-As part of our commitment to pricing transparency, Counsyl prepares an individual [price estimate]({% link _projects/insurance_estimates.md %}) for each patient based on their unique insurance benefits.  
+As part of our commitment to pricing transparency, Counsyl prepares an individual [price estimate]({% link _projects/pricing_estimates.md %}) for each patient based on their unique insurance benefits.  
 
 To ensure that these estimates are accurate, we built a manual review tool that lets us investigate 
 
