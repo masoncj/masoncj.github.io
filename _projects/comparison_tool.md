@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Pricing Estimate Accuracy Tool
-date: 2015-11-10
+date: 2018-11-18
 icon: comparison_tool_icon.png
 tags: 
   - Visualization

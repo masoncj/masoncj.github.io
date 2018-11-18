@@ -8,3 +8,9 @@ bundle install
 bundle exec jekyll serve
 ```
 
+
+To update version of Jekyll
+```
+rm build Gemfile.lock
+bundle install
+```

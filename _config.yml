@@ -5,8 +5,10 @@ description:
   Software developer and manager who is passionate about creating
   powerful and usable software that solves real world problems.  
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www2.cmason.com.com" # the base hostname & protocol for your site
+url: "http://www2.cmason.com" # the base hostname & protocol for your site
 github_username:  cmason1978
+
+theme: jekyll-theme-slate
 
 collections:
   projects:
