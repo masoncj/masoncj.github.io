@@ -15,7 +15,6 @@ layout: default
             <img src="/images{{ project.url }}{{ project.icon }}"/>
           </div>
           <div class='project-info'>
-            <span class="post-meta">{{ project.date | date: "%b %-d, %Y" }}</span>
             <h2>
               <a class="post-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
             </h2>
@@ -41,7 +40,6 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         
         <div class='post-container'>
           <div class='post-icon'>
@@ -52,6 +50,28 @@ layout: default
             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
           </h2>
           <p>{{ post.excerpt }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  
+    <hr>
+  <h1 class="page-heading">Talks</h1>
+
+  <ul class="talk-list">
+    {% for talk in site.talks %}
+      <li>
+        <span class="talk-meta">{{ talk.date | date: "%b %-d, %Y" }}</span>
+        
+        <div class='talk-container'>
+          <div class='talk-icon'>
+            <img src="/images{{ talk.url }}{{ talk.icon }}"/>
+          </div>
+        <div class='talk-info'>
+          <h2>
+            <a class="talk-link" href="{{ talk.url | prepend: site.baseurl }}">{{ talk.title }}</a>
+          </h2>
+          <p>{{ talk.excerpt }}</p>
         </div>
       </li>
     {% endfor %}
