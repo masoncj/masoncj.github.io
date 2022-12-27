@@ -1,12 +1,12 @@
 
-/* Projects */
-.project-list {
+/* Index page summary items */
+.summary-list {
   overflow: auto;  // Clear floats.
 
   li {
     list-style: none;
   }
-  .project-container {
+  .summary-container {
     clear: both;
   }
   
@@ -16,8 +16,7 @@
 
   @import "tags";
 
-  .project-icon {
-    border: 2px solid black;
+  %summary-icon-shared {
     width: 128px;
     height: 128px;
     float: left;
@@ -26,7 +25,16 @@
     margin-right: 10px;
   }
 
-  .project-info {
+  .summary-icon {
+    @extend %summary-icon-shared;
+  }
+  
+  .summary-icon-square {
+    @extend %summary-icon-shared;
+    border: 2px solid black;
+  }
+
+  .summary-info {
     padding: 10px;
     
     p:empty {
@@ -37,6 +45,14 @@
       line-height: 16px;
       margin-top: 8px;
     }
+  }
+  .summary-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+  }
+  .summary-link {
+      display: block;
+      font-size: 24px;
   }
 }
 

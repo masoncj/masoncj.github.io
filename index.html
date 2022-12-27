@@ -7,16 +7,16 @@ layout: default
 	<hr>
   <h1 class="page-heading">Projects</h1>
 
-  <ul class="project-list">
-    {% for project in site.projects %}
+  <ul class="summary-list">
+    {% for project in site.projects reversed %}
       <li>
-        <div class='project-container'>
-          <div class='project-icon'>
+        <div class='summary-container'>
+          <div class='summary-icon-square'>
             <img src="/images{{ project.url }}{{ project.icon }}"/>
           </div>
-          <div class='project-info'>
+          <div class='summary-info'>
             <h2>
-              <a class="post-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
+              <a class="summary-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
             </h2>
             <ul class='tag-list'>
               {% for tag in project.tags %}
@@ -33,45 +33,47 @@ layout: default
 </div>
 
 <div class="home">
-
+  {% if site.posts.size != 0 %}
   <hr>
   <h1 class="page-heading">Posts</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
+  <ul class="summary-list">
+    {% for post in site.posts reversed %}
       <li>
         
-        <div class='post-container'>
-          <div class='post-icon'>
+        <div class='summary-container'>
+          <div class='summary-icon'>
             <img src="/images{{ post.url }}{{ post.icon }}"/>
           </div>
-        <div class='post-info'>
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
-          <p>{{ post.excerpt }}</p>
+          <div class='summary-info'>
+            <h2>
+              <a class="summary-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+            <p>{{ post.excerpt }}</p>
+          </div>
         </div>
       </li>
     {% endfor %}
   </ul>
+  {% endif %}
   
-    <hr>
+  <hr>
   <h1 class="page-heading">Talks</h1>
 
-  <ul class="talk-list">
-    {% for talk in site.talks %}
+  <ul class="summary-list">
+    {% for talk in site.talks reversed %}
       <li>
-        <span class="talk-meta">{{ talk.date | date: "%b %-d, %Y" }}</span>
-        
-        <div class='talk-container'>
-          <div class='talk-icon'>
+        <div class='summary-container'>
+          <div class='summary-icon'>
             <img src="/images{{ talk.url }}{{ talk.icon }}"/>
           </div>
-        <div class='talk-info'>
-          <h2>
-            <a class="talk-link" href="{{ talk.url | prepend: site.baseurl }}">{{ talk.title }}</a>
-          </h2>
-          <p>{{ talk.excerpt }}</p>
+          <span class="summary-meta">{{ talk.date | date: "%b %-d, %Y" }}</span>
+          <div class='summary-info'>
+            <h2>
+              <a class="summary-link" href="{{ talk.url | prepend: site.baseurl }}">{{ talk.title }}</a>
+            </h2>
+            <p>{{ talk.excerpt }}</p>
+          </div>
         </div>
       </li>
     {% endfor %}
