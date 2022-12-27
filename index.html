@@ -42,10 +42,17 @@ layout: default
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        
+        <div class='post-container'>
+          <div class='post-icon'>
+            <img src="/images{{ post.url }}{{ post.icon }}"/>
+          </div>
+        <div class='post-info'>
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+          <p>{{ post.excerpt }}</p>
+        </div>
       </li>
     {% endfor %}
   </ul>

@@ -2,7 +2,7 @@
 layout: post
 title: Know Thy Data
 date: 2019-01-25
-icon: comparison_tool_icon.png
+icon: sneaker.png
 tags: 
 
 ---
@@ -34,8 +34,8 @@ More more more examples
 It's important to establish a solid process for algorithm refinement.  Not every dataset will work exactly the same, but I've found the following basic outline to be very helpful.  This is an iterative process: 
 
 
-![Process Diagram](../images/posts/know_thy_data/process_overview.svg)
-![Process Diagram ](/images/posts/know_thy_data/process_overview.svg)
+![Process Diagram](../images/posts/2019-01-30-know_thy_data/process_overview.svg)
+![Process Diagram ](/images/posts/2019-01-30-know_thy_data/process_overview.svg)
 
 
 ### Examine overall metrics and graphs
