@@ -11,17 +11,36 @@
 }
 
 .site-title {
+    font-family: "Roboto Slab",Arial,sanserif;
     font-size: 26px;
     font-weight: 300;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    color: $title-color;
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $title-color;
     }
+}
+
+.wrapper {
+   min-height: 60px;
+}
+
+.site-title-image {
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #E2AEAE;
+    border-radius: 28px;
+    margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .site-nav {
@@ -168,7 +187,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: 22px 0;
 }
 
 .page-heading {
@@ -182,30 +201,6 @@
     > li {
         margin-bottom: $spacing-unit;
     }
-}
-
-.post-meta {
-    font-size: $small-font-size;
-    color: $grey-color;
-}
-
-.talk-list {
-    margin-left: 0;
-    list-style: none;
-
-    > li {
-        margin-bottom: $spacing-unit;
-    }
-}
-
-.talk-meta {
-    font-size: $small-font-size;
-    color: $grey-color;
-}
-
-.talk-link {
-    display: block;
-    font-size: 24px;
 }
 
 .talk-embed {
