@@ -5,7 +5,6 @@ date: 2022-04-27
 icon: sandbox_icon.svg
 tags: talk
 
-
 ---
 
 Sandboxes, not just for kids anymore: use terraform workspaces to test and preview applications.
