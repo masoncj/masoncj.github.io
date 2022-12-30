@@ -10,6 +10,8 @@ Overcoming some technical challenges in our use of Kafka required rethinking how
 
 <!--more-->
 
+
+
 Transactional
 
 Commit which messages have been read

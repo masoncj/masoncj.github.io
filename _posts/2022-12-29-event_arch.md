@@ -17,7 +17,7 @@ A key early technical insight at Navio was that the data we collect is inherentl
 
 Because of this, we architected Navio's core platform with time in mind. 
 
-[Diagram river of data.]
+![river](../../images/posts/event_arch/river.jpg)
 
 Moreover, I've observed that early architecture choices tend to be durable: it is seldom a good idea and often not even feasible to rebuild everything from the ground up.  It's necessary to make changes while the plane still flies. If you start off with a [big ball of mud](http://www.laputan.org/mud/mud.html), that's likely where you'll remain. So, some time invested in early choices about the eventual system organization and code structure can pay dividends later.  You don't have to be architecture astronaut and you can evolve to the desired architecture over time, as we'll see.
 
