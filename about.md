@@ -24,4 +24,9 @@ I love:
   
 * backpacking
   ![aimee_greenlakes_panorama_lo](images/about/aimee_greenlakes_panorama_lo.jpeg)
+
 * cooking
+
+  <video controls width="300px">
+   <source src="/images/about/aimee_bok_choi.mp4" type="video/mp4">
+  </video>
