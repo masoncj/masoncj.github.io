@@ -7,6 +7,7 @@ description:
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www2.cmason.com" # the base hostname & protocol for your site
 github_username:  masoncj
+linkedin_url: https://www.linkedin.com/in/christopher-mason-510a291/
 
 theme: jekyll-theme-slate
 

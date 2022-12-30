@@ -1,14 +1,32 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
-Christopher Mason
+I like to make things, especially things that help people, especially software.
 
-Portland OR
+I live in Portland, OR.
 
-cmason (at) cmason.com
+I love:
+* my partner Aimée and our dog Sula
+  <img src="images/about/aimee_sula_chris.jpg" alt="aimee_sula_chris"/>
 
-[LinkedIn](https://www.linkedin.com/in/christopher-mason-510a291/)
+* sailing
+  ![cmason_at helm_san_juans](images/about/cmason_at helm_san_juans.jpg)
+
+* climbing
+  ![climbing](images/about/climbing.jpg)
+
+* making stuff from wood<br>
+  
+  ![greenhouse_cabinet](images/about/greenhouse_cabinet.jpg)
+  
+* backpacking
+  ![aimee_greenlakes_panorama_lo](images/about/aimee_greenlakes_panorama_lo.jpeg)
+
+* cooking
+
+  <video controls width="300px">
+   <source src="/images/about/aimee_bok_choi.mp4" type="video/mp4">
+  </video>
 
