@@ -208,3 +208,73 @@
     aspect-ratio: 4/3;
 }
 
+%pull-quote {
+  font-family: "Libre Baskerville",serif;
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+  max-width: 300px;	
+  margin: 30px;
+  color: #a73e3e;
+  span.quote:before {
+    content: "“";
+    font-size: 38px;
+    line-height: 24px;
+  }
+  span.quote:after {
+    content: "”";
+    font-size: 38px;
+    line-height: 24px;
+  }
+}
+
+.pull-quote-left {
+  @extend %pull-quote;
+  float: left;
+  
+  @include media-query($on-palm) {
+      float: none;
+  }
+}
+
+.pull-quote-right {
+  @extend %pull-quote;
+  float: right;
+  
+  @include media-query($on-palm) {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+.img-float-right {
+  float: right;
+  
+  @include media-query($on-palm) {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+.img-float-left {
+  float: left;
+  
+  @include media-query($on-palm) {
+      float: none;
+  }
+}
+
+.img-tiny {
+  max-width: 125px;
+  
+  @include media-query($on-palm) {
+      max-width: 60px;
+  }
+}
+
+div.take-a-breath {
+  height: 50px;
+}
+

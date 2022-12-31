@@ -31,7 +31,13 @@
   
   .summary-icon-square {
     @extend %summary-icon-shared;
-    border: 2px solid black;
+    border: 3px solid #E2AEAE;;
+  }
+  
+  .summary-icon-roundy {
+    @extend %summary-icon-shared;
+    border: 3px solid #3b6bf9;
+    border-radius: 8px;
   }
 
   .summary-info {

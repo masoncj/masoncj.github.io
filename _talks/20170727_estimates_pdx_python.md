@@ -2,12 +2,12 @@
 layout: talk
 title: Pricing Estimates
 date: 2017-07-27
-icon: estimate_icon.png
+icon: estimate_icon.svg
 tags: talk
 
 ---
 
-Describes how Counsyl used simple algorithms and a lot of hard work to estimate patient cost forgenetic tests.
+Describes how Counsyl used simple algorithms and a lot of hard work to estimate patient cost for genetic tests.
 
 <!--more-->
 

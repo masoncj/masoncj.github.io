@@ -8,7 +8,6 @@ I like to make things, especially things that help people, especially software.
 I live in Portland, OR.
 
 I love:
-
 * my partner Aimée and our dog Sula
   <img src="images/about/aimee_sula_chris.jpg" alt="aimee_sula_chris"/>
 
@@ -30,3 +29,4 @@ I love:
   <video controls width="300px">
    <source src="/images/about/aimee_bok_choi.mp4" type="video/mp4">
   </video>
+
