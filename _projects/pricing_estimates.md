@@ -27,3 +27,5 @@ Finally, the benefits and allowed estimates are combined in a clear and simple w
 ![Patient Estimate Page](/images/projects/pricing_estimates/estimate_page.png)
 
 I was responsible for most of the architecture and backend work to prepare, store, and track accuracy of estimates.  When I joined Counsyl, we had little understanding of just how difficult the project would be.  I've spent about two and half years refining the system, at first individually, and then with a team of two to six engineers and designers.  We've been able to achieve considerable accuracy improvements through a combination of targeted machine learning and manual curation.  
+
+For more detail, see [a talk I gave about the system](/talks/20170727_estimates_pdx_python/).
