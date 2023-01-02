@@ -228,6 +228,11 @@
   }
 }
 
+.pull-quote {
+  @extend %pull-quote;
+  max-width: none;
+}
+
 .pull-quote-left {
   @extend %pull-quote;
   float: left;

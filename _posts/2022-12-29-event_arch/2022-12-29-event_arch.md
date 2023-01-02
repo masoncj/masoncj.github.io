@@ -14,7 +14,7 @@ Navio's architecture is driven by a business need to keep time-based data foreve
 
 <img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Home Page Phone.png" alt="Navio app Home page"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/My Calendar Phone.png" alt="My Calendar Phone"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Morning Meds Phone.png" alt="Navio App Morning Meds"><img  class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Rad & Chemo Phone.png" alt="Navio app Rad & Chemo"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Time to take your survey Phone.png" alt="Time to take your survey">
 
-Navio is a health tehnology company making apps that let cancer patients better understand and stay on track their care.  Over time, Navio collects valuable insights into how these patients are doing and what is working well for them.  This information ultimately allows pharmaceutical and diagnostic companies improve care for everyone.
+Navio is a health tehnology company making apps that let cancer patients better understand and stay on track in their care.  Over time, Navio collects valuable insights into how these patients are doing and what is working well for them.  This information ultimately allows pharmaceutical and diagnostic companies improve care for everyone.
 
 <div class="pull-quote-right"><span class="quote">early architecture choices tend to be durable</span></div>
 
@@ -24,9 +24,9 @@ To that end, a key early insight we had was that the data we collect is inherent
 
 ![river](../../images/posts/2022-12-29-event_arch/river.jpg)
 
-Because of this, we architected Navio's core platform with time in mind: as an event-based system. 
+Because of this, we architected Navio's core platform with time in mind: as an **event-based system**. 
 
-Specifically, in Navio's architecture we think primarily in terms of "Events".  An Event in this context is **a statement of something that was true** about the world at a point in time. Events are often defined in the past tense: `TreatmentPrescribed`, `MedicineTaken`, `TaskCompleted`, etc.  As such, events are immutable and unchanging: they were true at the point in time where they were collected. If our understanding changes in the future, we'll record more events. Sometimes we'll have to resolve conflicting or contradictory events.
+Specifically, in Navio's architecture we think primarily in terms of "Events".  In this context **an Event is a statement of something that was true** about the world. Events are often defined in the past tense: `TreatmentPrescribed`, `MedicineTaken`, `TaskCompleted`, etc.  As such, events are immutable and unchanging: they were true at the point in time where they were collected. If our understanding changes in the future, we'll record more events. Sometimes we'll have to resolve conflicting or contradictory events.
 
 Simply put, rather than modeling current relationships:
 
@@ -46,13 +46,13 @@ We can then expand or "denormalize" the events into the current state where need
 
 An event-based architecture, then, is one then passes events around as the core way of communicating between different parts of the system. Going further, an [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) system uses **a log of events as the core data structure and source of truth in our system**.  This log is durable and immutable.  
 
-In our system, each user or client application has a separate webapp in a backend-for-frontend style.  These separate applications mostly communicate changes via asynchronous events on the event log.  We use [Apache Kafka](https://kafka.apache.org/) to store this immutable log durably.  We're not dogmatic, a handful of services use REST where strong transactional guarantees are required, such as for the atomic creation of a unique patient.  
+In our system, each user or client application has a separate webapp in a [backend-for-frontend](https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0) style.  These separate applications mostly communicate changes via asynchronous events on the event log.  We use [Apache Kafka](https://kafka.apache.org/) to store this immutable log durably.  We're not dogmatic, a handful of services use REST where strong transactional guarantees are required, such as for the atomic creation of a unique patient.  
 
 <img class="img-float-right" alt="High Level Architecture Simplified" src="../../images/posts/2022-12-29-event_arch/High Level Architecture Simplified.svg" width="300px">
 
-Each app or service also keeps a local state store, typically in postgres, but Elasticsearch and Redis are also used by some services.  The local state store can be thought of as a projection or cache of the relevant parts of the event stream, and can be completely reconstructed from it.  The app receives events from Kafka, applies them to the local database and then emits events in response to the incoming events, or based on user actions.  User actions don't immediately impact database state, but instead are emitted as events and immediately consumed by both local and remote applications.  Local database transactions are used to maintain a consistent view of the events that have been consumed from Kafka.  By introducing this separation between user input and recording outcome, we force all of the important interactions into the message log where other apps can consume and react to this input.  Having distinct applications for each type of user also helps force a complete and consistent log.
+Each app or service also keeps a local state store, typically in postgres, but Elasticsearch and Redis are also used by some services.  The local state store can be thought of as a projection or cache of the relevant parts of the event stream, and can be completely reconstructed from it.  The app receives events from Kafka, applies them to the local database and then emits events in response to the incoming events, or based on user actions.  User actions don't immediately impact database state, but instead are emitted as events and then consumed by both local and remote applications.  Local database transactions are used to maintain a consistent view of the events that have been consumed from Kafka.  By introducing this separation between user input and recording outcome, we force all of the important interactions into the message log where other apps can consume and react to this input.  Having distinct applications for each type of user also helps force a complete and consistent log.
 
-<div class="pull-quote-left"><span class="quote">all important interactions are forced into the message log where other apps can consume and react to them</span></div>
+<div class="pull-quote"><span class="quote">all important interactions are forced into the message log where other apps can consume and react to them</span></div>
 
 I should note: these are not new ideas. See the reference section at the end of the article for some suggested reading.  Indeed, we did a lot of reading when designing this system.  Some of the key objections we heard about event-sourced systems were:
 
@@ -60,15 +60,13 @@ I should note: these are not new ideas. See the reference section at the end of 
 * **Verbosity**, in that every single change to the system must be enacted by some event, leading to a proliferation of tiny events. Our library automatically creates and applies "technical events" that have simple impacts on data models.  More complex "business events" are handled via hand written code.
 * **Duplicativeness**, since the different parts of the system that share data must separately implement similar or the same data models. We again work hard to reduce boiler-plate so that the essential differences between the various similar models are apparent.
 
-It's also important to note that we did not implement this architectural at once: At first, we stored the log of events in a postgres table and then gradually introduced Kafka and refined our approach over time.
-
-[diagram incremental implementation?]
+It's also important to note that we did not implement this architectural at once: At first, we stored the log of events in a postgres table and then gradually introduced Kafka and refined our approach over time.  
 
 I don't suggest that this architecture is appropriate for all situations.  It does have a number of advantages, but also introduces significant complexities. 
 
-**Advantages**
+#### Advantages
 
-* **Democratized Data:** Teams can consume from the central log independently.  Also teams can organize around customers rather than around data.  A team can efficiently spin ups  new app or service, for instance by starting with only the most recent events and then progressively adding older data. 
+* **Democratized Data:** Teams can consume from the central log independently.  Also teams can organize around customers rather than around data.  A team can efficiently spin up a new app or service, for instance by starting with only the most recent events and then progressively adding older data. 
 * **Awesomely auditable**: Every event carries provenance information about who created it and when, which eases responding to requests to justify or explain a particular oddity.
 * **Asynchronous and resilient:** Each part of the system (such as those serving different kinds of users) is decoupled from the other so they can continue to operate independently in case of a failure.
 * **Sized and shaped**: Different services or apps can have different organizations of data or can pick and choose the subset of events they are actually interested in.
@@ -76,20 +74,15 @@ I don't suggest that this architecture is appropriate for all situations.  It do
 
 
 
-**Challenges**
+#### Challenges
 
-* **Asynchronous and eventually consistent**: Asynchronicity enables resilience but it also means that not all parts of the system are in sync.  Care must be taken to design events that constrain the impact of dependencies between events and and user interfaces  that set appropriate expectations of recency and up-to-dateness.
+* **Asynchronous and eventually consistent**: Asynchronicity enables resilience but it also means that not all parts of the system are in sync.  Care must be taken to design events that constrain the impact of dependencies between events and user interfaces should set appropriate expectations of recency and up-to-dateness.
 
-* **Data is forever**: Once written, event data cannot be retracted as later events may depend on them.  We ended up with several different "angry little" events that we had to work around. This durability also complicates GDPR compliance and the right to be forgotten.  It's important to give yourself tools to handle this, whether  encrypting data for later shredding, reprocessing 
+* **Data is forever**: Once written, event data cannot be retracted as later events may depend on them.  We ended up with several different "angry little" events that we had to work around. This durability also complicates GDPR compliance and the right to be forgotten.  It's important to give yourself tools to handle this, such as the ability to encrypt data for later shredding, or to reprocess events when a mistake is discovered.  We are also at work on tools to allow carefully controlled rewriting of history when absolutely necessary.
 
-
-  We are also at work on tools to allow carefully controlled rewriting of history when absolutely necessary.
-
-* **Kafka's (a) Beast**: We ran into several issues with Kafka itself that required several rounds of problem-solving. In particular, it's difficult to precisely clone Kafka topics due to how Kafka implements transactions.  Also, Kafka has several different timeouts it's important to be aware of an tune appropriately.
+* **Kafka's (a) Beast**: We ran into several issues with Kafka itself that required several rounds of problem-solving. In particular, it's difficult to precisely clone Kafka topics due to how Kafka implements transactions.  Also, Kafka has several different timeouts it's important to be aware of and tune appropriately.
 
 We'll discuss several of these issues in later posts.
-
-TODO: lessons learned
 
 
 
