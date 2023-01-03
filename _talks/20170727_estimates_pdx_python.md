@@ -14,4 +14,5 @@ Describes how Counsyl used simple algorithms and a lot of hard work to estimate 
 Talk given at PDX Python in 2017.
 
 <object class="talk-embed" data="../../images/talks/20170727_estimates_pdx_python/20170727_estimates_pdx_python.pdf"></object>
+<br>([Download PDF](../../images/talks/20170727_estimates_pdx_python/20170727_estimates_pdx_python.pdf))
 
