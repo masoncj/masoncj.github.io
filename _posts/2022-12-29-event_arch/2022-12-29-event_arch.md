@@ -100,12 +100,11 @@ We'll discuss several of these issues in later posts.
 
 #### References:
 
-* Kleppmann, [Designing Data-Intensive Applications](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/). A tour de force explication of application architectures.
-  * See also Kleppman's excellent talk "[Thinking in Events](https://martin.kleppmann.com/2021/07/02/debs-keynote-thinking-in-events.html)"
-
-* [Data on the Outside, Data on the Inside](https://www.cidrdb.org/cidr2005/papers/P12.pdf)  
 * Stopford, **[Designing Event-driven Systems](https://www.oreilly.com/library/view/designing-event-driven-systems/9781492038252/#toc-start)**. Very useful conceptually but also obviously a marketing tool for Confluent. 
 * Kleppman, [**Designing Data Intensive Applications**](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321). Excellent strategic introduction to system architecture.
+  * See also Kleppman's excellent talk "[Thinking in Events](https://martin.kleppmann.com/2021/07/02/debs-keynote-thinking-in-events.html)".
+
+* Helland, **[Data on the Outside, Data on the Inside](https://www.cidrdb.org/cidr2005/papers/P12.pdf)**.  Argues for teams/services to hold their data close and gate access via APIs.  There are parts of this that I pretty strongly disagree with, having seen it break down because of resource constraints.
 * Newman, [**Building Microservices**](https://www.amazon.com/Building-Microservices-Designing-Fine-Grained-Systems/dp/1491950358/ref=pd_sbs_14_t_0/131-9244616-6912759?_encoding=UTF8&pd_rd_i=1491950358&pd_rd_r=0fbcd440-1861-453d-a13f-2b6c8ccf484f&pd_rd_w=2Ont6&pd_rd_wg=e0nBL&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=KCFK2GAZJEP3CCP2GR4V&psc=1&refRID=KCFK2GAZJEP3CCP2GR4V). Much more tactical and a bit dated but still a good collection of things to think about.
 * Rocha, **[What they don't tell you about event sourcing](https://medium.com/@hugo.oliveira.rocha/what-they-dont-tell-you-about-event-sourcing-6afc23c69e9a)**.  Discusses key pitfalls. 
 
