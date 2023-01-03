@@ -14,7 +14,7 @@ Navio's architecture is driven by a business need to keep time-based data foreve
 
 <img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Home Page Phone.png" alt="Navio app Home page"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/My Calendar Phone.png" alt="My Calendar Phone"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Morning Meds Phone.png" alt="Navio App Morning Meds"><img  class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Rad & Chemo Phone.png" alt="Navio app Rad & Chemo"><img class="img-tiny" src="../../images/posts/2022-12-29-event_arch/Time to take your survey Phone.png" alt="Time to take your survey">
 
-Navio is a health tehnology company making apps that let cancer patients better understand and stay on track in their care.  Over time, Navio collects valuable insights into how these patients are doing and what is working well for them.  This information ultimately allows pharmaceutical and diagnostic companies improve care for everyone.
+Navio is a health technology company making apps that let cancer patients better understand and stay on track in their care.  Over time, Navio collects valuable insights into how these patients are doing and what is working well for them.  This information ultimately allows pharmaceutical and diagnostic companies improve care for everyone.
 
 <div class="pull-quote-right"><span class="quote">early architecture choices tend to be durable</span></div>
 
