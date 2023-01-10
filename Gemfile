@@ -5,3 +5,5 @@ gem 'jekyll-paginate'
 gem 'jekyll-relative-links'
 
 gem "webrick", "~> 1.7"
+
+gem 'jekyll-sitemap'

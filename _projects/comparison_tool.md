@@ -8,6 +8,8 @@ tags:
   - Machine Learning
   - Coffeescript
   - D3
+last_modified_at: 2022-01-10 0:00:00 +0000
+
 ---
 Improved accuracy of machine-generated insurance cost estimates through manual curation using this D3- and crossfilter-based visualization tool.
 <!--more-->

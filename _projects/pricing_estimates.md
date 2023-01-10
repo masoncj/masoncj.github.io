@@ -2,6 +2,7 @@
 layout: project
 title: Individual Pricing Estimates
 date: 2016-08-01
+last_modified_at: 2022-01-10 0:00:00 +0000
 icon: estimate_icon.png
 tags: 
   - Machine Learning

@@ -5,7 +5,7 @@ description:
   Software engineering leader who is passionate about creating
   powerful and usable software that betters the human condition.  
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www2.cmason.com" # the base hostname & protocol for your site
+url: "https://www.cmason.com" # the base hostname & protocol for your site
 github_username:  masoncj
 linkedin_url: https://www.linkedin.com/in/christopher-mason-510a291/
 
@@ -47,9 +47,10 @@ relative_links:
   enabled:     true
   collections: true  
 
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-babel
   - jekyll-relative-links
+  - jekyll-sitemap
 
 babel_js_extensions: 'es6'
