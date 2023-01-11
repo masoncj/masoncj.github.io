@@ -5,7 +5,7 @@ date: 2022-12-29
 icon: noun-river-1667480-3B6BF9.svg
 tags: post architecture tech 
 permalink: posts/2022-12-29-event_arch/
-last_modified_at: 2022-01-10 0:00:00 +0000
+last_modified_at: 2023-01-11 0:00:00 +0000
 
 ---
 
