@@ -266,6 +266,7 @@ DEPENDENCIES
   jekyll-babel
   jekyll-paginate
   jekyll-relative-links
+  jekyll-sitemap
   webrick (~> 1.7)
 
 BUNDLED WITH
