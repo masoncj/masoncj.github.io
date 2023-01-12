@@ -51,7 +51,7 @@ jobs:
 
   # Deployment job
   deploy:
-    if: github.ref == $default-branch
+    if: github.ref_protected
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
