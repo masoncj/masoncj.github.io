@@ -51,9 +51,7 @@ jobs:
 
   # Deployment job
   deploy:
-    on: 
-      push:
-        branches: [$default-branch]
+    if: github.ref == $default-branch
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
