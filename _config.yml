@@ -9,6 +9,8 @@ url: "https://www.cmason.com" # the base hostname & protocol for your site
 github_username:  masoncj
 linkedin_url: https://www.linkedin.com/in/christopher-mason-510a291/
 
+safe: false
+
 theme: jekyll-theme-slate
 
 collections:
@@ -29,12 +31,7 @@ defaults:
     values:
       layout: "default"
       excerpt_separator: <!--more-->
-#  - 
-#    scope:
-#      path: ""
-#      type: projects
-#    values:
-#      layout: project
+
 
 # Build settings
 markdown: kramdown
@@ -52,5 +49,6 @@ plugins:
   - jekyll-babel
   - jekyll-relative-links
   - jekyll-sitemap
+
 
 babel_js_extensions: 'es6'
