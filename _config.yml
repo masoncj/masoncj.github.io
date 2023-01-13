@@ -52,6 +52,9 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - .idea
+  - .next
+  - .sass-cache
   - components
   - interfaces
   - pages
