@@ -2,10 +2,11 @@ import {Url} from "url";
 
 export type Item = {
     id: string,
-    url: Url,
+    url: string,
     title: string,
+    icon: string,
     content_html: string,
-    summary: string,
+    excerpt: string,
     date_published: Date,
     date_modified: Date,
     tags: string[]

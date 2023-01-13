@@ -39,11 +39,11 @@ export default function Home({feed}: Props) {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
         <link rel="manifest" href="/images/site.webmanifest"/>
       </Head>
-      <main className="main">
+      <ul className="summary-list">
         { feed.items.map((item) => (
             <ItemCard key={item.id} item={item}/>
         ))}
-      </main>
+      </ul>
     </>
   )
 }

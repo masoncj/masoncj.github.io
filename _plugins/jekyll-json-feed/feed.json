@@ -26,11 +26,11 @@
       {% for post in posts -%}
         {
             "id": {{ post.id | absolute_url | jsonify }},
-            "url": {{ post.url | absolute_url | jsonify }},
+            "url": {{ post.url | jsonify }},
             "title": {{ post.title | smartify | strip_html | normalize_whitespace | jsonify }},
             "content_html": {{ post.content | strip | jsonify }},
             {% if post.excerpt and post.excerpt != empty -%}
-            "summary": {{ post.excerpt | strip_html | normalize_whitespace | jsonify }},
+            "excerpt": {{ post.excerpt | strip_html | normalize_whitespace | jsonify }},
             {% endif -%}
             {% assign post_image = post.image.path | default: post.image -%}
             {% if post_image -%}
@@ -39,10 +39,8 @@
               {% endunless -%}
               "image": {{ post_image | jsonify }},
             {% endif -%}
-            {% assign post_banner_image = post.banner_image.path | default: post.banner_image -%}
-            {% if post_banner_image -%}
-            "banner_image": {{ post_banner_image | jsonify }},
-            {% endif -%}
+            {% assign icon = post.icon.path | default: post.icon -%}
+            "icon": {{ icon | jsonify }},
             "date_published": "{{ post.date | date_to_xmlschema }}",
             "date_modified": "{{ post.last_modified_at | default: post.date | date_to_xmlschema }}",
             {% assign post_author = post.author | default: post.authors[0] | default: site.author -%}
