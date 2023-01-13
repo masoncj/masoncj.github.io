@@ -1,5 +1,6 @@
 
 import { Item } from "../interfaces/item";
+import TagBubble from "./tagBubble";
 
 type Props = {
     item: Item
@@ -22,7 +23,7 @@ export default function ItemCard({item}: Props) {
                     </h2>
                     <ul className='tag-list'>
                         { item.tags.map((tag)=>(
-                            <li className="tag">{tag}</li>
+                            <TagBubble tag={tag} key={`${item.id}-${tag}`}/>
                         ))}
                     </ul>
                     <p>{item.excerpt}</p>

@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 
 import { promises as fs } from 'fs'
 import path from 'path'
 
-const inter = Inter({ subsets: ['latin'] })
+import * as _ from "lodash";
 
 import { GetStaticProps } from 'next'
 import { Feed } from "../interfaces/feed";
 import ItemCard from "../components/itemCard";
 import React from "react";
-
+import { useRouter } from "next/router";
+import { ofTags } from "../utils/tags";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feedFile = path.join(process.cwd(), 'public', 'feed.json')
@@ -26,6 +26,11 @@ type Props = {
 }
 
 export default function Home({feed}: Props) {
+  let router = useRouter();
+  const tags = ofTags(router.query)
+
+  let itemsToShow = feed.items.filter((item) => tags.length == 0 || !!(_.intersection(item.tags, tags).length))
+
   return (
     <>
       <Head>
@@ -40,7 +45,7 @@ export default function Home({feed}: Props) {
         <link rel="manifest" href="/images/site.webmanifest"/>
       </Head>
       <ul className="summary-list">
-        { feed.items.map((item) => (
+        { itemsToShow.map((item) => (
             <ItemCard key={item.id} item={item}/>
         ))}
       </ul>

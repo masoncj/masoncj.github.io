@@ -22,7 +22,7 @@
     },
     {% endif -%}
     "items": [
-      {% assign posts = site.projects | concat: site.posts | concat: site.talks  -%}
+      {% assign posts = site.projects | concat: site.posts | concat: site.talks | where: "draft", "false" -%}
       {% for post in posts -%}
         {
             "id": {{ post.id | absolute_url | jsonify }},
