@@ -1,12 +1,23 @@
 # CMason Website
 
-## Building 
+## Building Javascript
+
+```
+node --version
+# v19.1.0
+brew install pnpm
+
+```
+
+
+
+## Building Static Website
 
 To run locally:
 
 ```
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --host=0.0.0.0 --trace
 ```
 
 
