@@ -6,7 +6,6 @@ description:
   powerful and usable software that betters the human condition.  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.cmason.com" # the base hostname & protocol for your site
-destination: public
 github_username:  masoncj
 linkedin_url: https://www.linkedin.com/in/christopher-mason-510a291/
 
@@ -51,18 +50,5 @@ plugins:
   - jekyll-relative-links
   - jekyll-sitemap
 
-exclude:
-  - .idea
-  - .next
-  - .sass-cache
-  - components
-  - interfaces
-  - pages
-  - next.config.js
-  - next-env.d.ts
-  - package.json
-  - pnpm-lock.yaml
-  - tsconfig.json
-  - node_modules
 
 babel_js_extensions: 'es6'
