@@ -59,13 +59,13 @@ export default function Home({feed, headHtml, headerHtml, footerHtml}: Props) {
   const activeTagNames = useMemo(() => activeTags.map((tag?) => tag ? tag.name : ''), [activeTags]);
 
   let itemsToShow = useMemo(() => {
-    return feed.items.filter(
+    return _.orderBy(feed.items.filter(
         (item) => activeTags.length == 0 || (
             item.tags.filter((tag) => {
               return activeTagNames.indexOf(tag.name) != -1
             }).length == activeTags.length
         )
-    )
+    ), ['date_published'], ['desc'])
   }, [activeTagNames, activeTags.length, feed.items]);
 
   return (

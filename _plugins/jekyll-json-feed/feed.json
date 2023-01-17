@@ -55,7 +55,10 @@
             },
             "tags": [
               {% for tag in post.tags -%}
-                {"name": {{tag | jsonify}} }{% unless forloop.last == true %},{% endunless -%}
+                {
+                  "name": {{tag | jsonify}},
+                  "hue": {{tag | tag_hue}}
+                }{% unless forloop.last == true %},{% endunless -%}
               {% endfor %}
             ]
         }{% unless forloop.last == true %},{% endunless -%}

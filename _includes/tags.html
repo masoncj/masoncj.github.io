@@ -1,0 +1,7 @@
+
+
+<ul class='tag-list'>
+    {% for tag in tags %}
+        <li class="tag" style="background-color:hsl({{tag | tag_hue}}, 100%, 30%);color:hsl({{tag | tag_hue}}, 90%, 80%);border-color:hsl({{tag | tag_hue}}, 90%, 60%)">{{ tag }}</li>
+    {% endfor %}
+</ul>
