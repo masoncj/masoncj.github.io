@@ -1,12 +1,11 @@
 import { ParsedUrlQuery } from "querystring";
+import { Tag, Tags } from "../interfaces/tag";
 
-export function ofTags(query: ParsedUrlQuery): string[] {
-    const tags = query.tags;
-    if (!tags) {
+export function ofTags(query: ParsedUrlQuery, tags: Tags): Tag[] {
+    const activeTags = query.tags;
+    if (!activeTags) {
         return [];
-    } else if (Array.isArray(tags)) {
-        return tags;
-    } else {
-        return tags.split(",");
     }
+    const tagNames = Array.isArray(activeTags) ? activeTags : activeTags.split(",")
+    return tagNames.map((tagName) => tags[tagName]);
 }

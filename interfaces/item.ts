@@ -1,4 +1,4 @@
-import {Url} from "url";
+import { Tag } from "./tag";
 
 export type Item = {
     id: string,
@@ -9,5 +9,5 @@ export type Item = {
     excerpt: string,
     date_published: Date,
     date_modified: Date,
-    tags: string[]
+    tags: Tag[]
 }

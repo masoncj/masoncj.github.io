@@ -1,35 +1,61 @@
 
+import * as _ from "lodash";
+
 import { useRouter } from "next/router";
 import { ofTags } from "../utils/tags";
+import { Tag, Tags } from "../interfaces/tag";
+import classNames from "classnames";
 type Props = {
-    tag: string
+  tag: Tag,
+  onClick?: (tag: Tag) => void,
+  showClose?: Boolean,
+  onClose?: (tag: Tag) => void,
+  highlighted?: Boolean
 }
 
 function hashCode(s: string):number{
-    return s.split('').reduce(
-        (a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},
-    0)
+  return s.split('').reduce(
+      (a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},
+  0)
 }
 
 
+export default function TagBubble(
+  {
+    tag,
+    onClick = (tag: Tag) => {},
+    showClose = false,
+    onClose = (tag: Tag) => {},
+    highlighted = false,
+  }: Props
+) {
+  const router = useRouter();
+  const hue = hashCode(tag.name.toLowerCase()) % 180 + 180;
 
-export default function TagBubble({tag}: Props) {
-    const router = useRouter();
-    const hue = hashCode(tag.toLowerCase()) % 180 + 180;
+  const onCloseClick = (evt) => {
+    evt.stopPropagation();
+    onClose(tag);
+  }
 
-    const onClick = (evt) => {
-        // TODO: there must be some easier way to do this?
-        const tags = ofTags(router.query)
-        router.push({query : {tags: tags + tag}})
-    }
-
-    return (
-        <li className="tag" style={{
-            backgroundColor: `hsl(${hue}, 100%, 30%)`,
-            color: `hsl(${hue}, 90%, 80%)`,
-            borderColor: `hsl(${hue}, 90%, 60%)`
-        }} onClick={onClick}>
-            {tag}
-        </li>
-    )
+  return (
+    <li
+        className={classNames({
+          'tag': true,
+          'highlighted': highlighted
+        })}
+        style={{
+          backgroundColor: `hsl(${hue}, 100%, 30%)`,
+          color: `hsl(${hue}, 90%, 80%)`,
+          borderColor: `hsl(${hue}, 90%, 60%)`
+        }}
+        onClick={() => onClick(tag)}
+    >
+        {tag.name}
+      {showClose &&
+        <div className="tagClose" style={{borderColor: `hsl(${hue}, 90%, 60%)`}} onClick={onCloseClick}>
+          &#10005;
+        </div>
+      }
+    </li>
+  )
 }

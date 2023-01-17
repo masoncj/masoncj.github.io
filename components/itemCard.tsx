@@ -1,12 +1,19 @@
 
 import { Item } from "../interfaces/item";
 import TagBubble from "./tagBubble";
+import { Tag } from "../interfaces/tag";
 
 type Props = {
-    item: Item
+    item: Item,
+    onTagClick?: (tag: Tag) => void
 }
 
-export default function ItemCard({item}: Props) {
+export default function ItemCard(
+    {
+        item,
+        onTagClick = (tag: Tag) => {}
+    }: Props
+) {
     const icon = "/images" + item.url + item.icon;
     const url = item.url
     return (
@@ -23,7 +30,7 @@ export default function ItemCard({item}: Props) {
                     </h2>
                     <ul className='tag-list'>
                         { item.tags.map((tag)=>(
-                            <TagBubble tag={tag} key={`${item.id}-${tag}`}/>
+                            <TagBubble tag={tag} key={`${item.id}-${tag.name}`} onClick={onTagClick}/>
                         ))}
                     </ul>
                     <p>{item.excerpt}</p>

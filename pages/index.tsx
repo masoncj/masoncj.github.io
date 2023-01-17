@@ -8,13 +8,18 @@ import * as _ from "lodash";
 import { GetStaticProps } from 'next'
 import { Feed } from "../interfaces/feed";
 import ItemCard from "../components/itemCard";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { ofTags } from "../utils/tags";
+import { Tag } from "../interfaces/tag";
+import { SearchBox } from "../components/searchBox";
+
+let tags:{[name:string]: Tag} = {}
 
 export const getStaticProps: GetStaticProps = async () => {
   const feedFile = path.join(process.cwd(), 'public', 'feed.json')
   const feedString = await fs.readFile(feedFile, 'utf8')
+  // @ts-ignore
   const feed: Feed = JSON.parse(feedString)
   return {
     props: {feed}
@@ -27,9 +32,29 @@ type Props = {
 
 export default function Home({feed}: Props) {
   let router = useRouter();
-  const tags = ofTags(router.query)
 
-  let itemsToShow = feed.items.filter((item) => tags.length == 0 || !!(_.intersection(item.tags, tags).length))
+  const [tags, ] = useState(() => {
+    return _.keyBy(_.uniqBy(_.flatMap(feed.items, (item) => item.tags), (tag) => tag.name), (tag) => tag.name);
+  })
+  const [activeTags, setActiveTags] = useState(Array<Tag>());
+  useEffect(() => {
+    setActiveTags(ofTags(router.query, tags))
+  }, [tags, router.query.tags])
+  const updateActiveTags = (tags: Tag[]) => {
+    tags = _.uniqBy(tags, 'name');
+    router.push({query: { tags: tags.map((tag) => tag.name) } })
+  }
+  const activeTagNames = useMemo(() => activeTags.map((tag?) => tag ? tag.name : ''), [activeTags]);
+
+  let itemsToShow = useMemo(() => {
+    return feed.items.filter(
+        (item) => activeTags.length == 0 || (
+            item.tags.filter((tag) => {
+              return activeTagNames.indexOf(tag.name) != -1
+            }).length == activeTags.length
+        )
+    )
+  }, [activeTagNames]);
 
   return (
     <>
@@ -44,11 +69,16 @@ export default function Home({feed}: Props) {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
         <link rel="manifest" href="/images/site.webmanifest"/>
       </Head>
-      <ul className="summary-list">
-        { itemsToShow.map((item) => (
-            <ItemCard key={item.id} item={item}/>
-        ))}
-      </ul>
+        <div>
+          <div>
+            <SearchBox tags={tags} activeTags={activeTags} setActiveTags={updateActiveTags}/>
+          </div>
+          <ul className="summary-list">
+            { itemsToShow.map((item) => (
+              <ItemCard key={item.id} item={item} onTagClick={(tag) => updateActiveTags([...activeTags, tag])}/>
+            ))}
+          </ul>
+        </div>
     </>
   )
 }
