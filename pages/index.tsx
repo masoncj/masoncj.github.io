@@ -12,24 +12,37 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { ofTags } from "../utils/tags";
 import { SearchBox } from "../components/searchBox";
+import Layout from "../components/layout";
+
+
+import styles from './index.module.css'
 
 let tags:{[name:string]: Tag} = {}
 
+async function readPublicFile(filename: string): Promise<string> {
+  const feedFile = path.join(process.cwd(), 'public', filename)
+  return fs.readFile(feedFile, 'utf8')
+}
+
 export const getStaticProps: GetStaticProps = async () => {
-  const feedFile = path.join(process.cwd(), 'public', 'feed.json')
-  const feedString = await fs.readFile(feedFile, 'utf8')
-  // @ts-ignore
-  const feed: Feed = JSON.parse(feedString)
   return {
-    props: {feed}
+    props: {
+      feed: JSON.parse(await readPublicFile('feed.json')),
+      headHtml: await readPublicFile('head_include.html'),
+      headerHtml: await readPublicFile('header_include.html'),
+      footerHtml: await readPublicFile('footer_include.html'),
+    }
   }
 }
 
 type Props = {
-  feed: Feed
+  feed: Feed,
+  headHtml: string,
+  headerHtml: string,
+  footerHtml: string,
 }
 
-export default function Home({feed}: Props) {
+export default function Home({feed, headHtml, headerHtml, footerHtml}: Props) {
   let router = useRouter();
 
   const [tags, ] = useState(() => {
@@ -56,28 +69,18 @@ export default function Home({feed}: Props) {
   }, [activeTagNames, activeTags.length, feed.items]);
 
   return (
-    <>
+    <Layout headHtml={headHtml} headerHtml={headerHtml} footerHtml={footerHtml}>
       <Head>
-        <meta charSet="utf-8"/>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
         <title>Christopher Mason</title>
-        <meta name="description" content="Software engineering leader who is passionate about creating powerful and usable software that betters the human condition." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
-        <link rel="manifest" href="/images/site.webmanifest"/>
       </Head>
-        <div>
-          <div>
-            <SearchBox tags={tags} activeTags={activeTags} setActiveTags={updateActiveTags}/>
-          </div>
-          <ul className="summary-list">
-            { itemsToShow.map((item) => (
-              <ItemCard key={item.id} item={item} onTagClick={(tag) => updateActiveTags([...activeTags, tag])}/>
-            ))}
-          </ul>
-        </div>
-    </>
+      <div className={styles.searchBox}>
+        <SearchBox tags={tags} activeTags={activeTags} setActiveTags={updateActiveTags}/>
+      </div>
+      <ul className="summary-list">
+        {itemsToShow.map((item) => (
+            <ItemCard key={item.id} item={item} onTagClick={(tag) => updateActiveTags([...activeTags, tag])}/>
+        ))}
+      </ul>
+    </Layout>
   )
 }

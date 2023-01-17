@@ -1,6 +1,8 @@
 
 
 div.searchBox {
+    height: 40px;
+
     position: relative;
     box-sizing: border-box;
 
@@ -13,7 +15,7 @@ div.searchBox {
     background: #F5F5F5;
     border: 2px solid #E2ADAD;
     box-shadow: inset 0px 0px 3px 3px #E2ADAD;
-    border-radius: 20px;
+    border-radius: 21px;
 }
 
 .searchIcon {
