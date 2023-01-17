@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from "querystring";
-import { Tag, Tags } from "../interfaces/tag";
+import { Tag, Tags } from "interfaces";
 
 export function ofTags(query: ParsedUrlQuery, tags: Tags): Tag[] {
     const activeTags = query.tags;

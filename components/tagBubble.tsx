@@ -1,10 +1,9 @@
 
-import * as _ from "lodash";
-
 import { useRouter } from "next/router";
-import { ofTags } from "../utils/tags";
-import { Tag, Tags } from "../interfaces/tag";
+import { Tag, Tags } from "../interfaces";
 import classNames from "classnames";
+import {MouseEvent} from "react";
+
 type Props = {
   tag: Tag,
   onClick?: (tag: Tag) => void,
@@ -32,7 +31,7 @@ export default function TagBubble(
   const router = useRouter();
   const hue = hashCode(tag.name.toLowerCase()) % 180 + 180;
 
-  const onCloseClick = (evt) => {
+  const onCloseClick = (evt: MouseEvent<HTMLDivElement>) => {
     evt.stopPropagation();
     onClose(tag);
   }

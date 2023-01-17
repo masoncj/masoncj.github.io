@@ -1,6 +1,6 @@
 import { useCombobox, useMultipleSelection } from "downshift";
 import { useMemo, useState } from "react";
-import { Tag, Tags } from "../interfaces/tag";
+import { Tag, Tags } from "../interfaces";
 import TagBubble from "./tagBubble";
 
 import * as _ from "lodash";
@@ -54,7 +54,7 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
         selectedItem,
     } = useCombobox({
         items: visibleTags,
-        itemToString: function(tag?: Tag) {
+        itemToString: function(tag: Tag | null) {
             return tag ? tag.name : ''
         },
         defaultHighlightedIndex: 0, // after selection, highlight the first item.
@@ -82,13 +82,13 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
             switch (type) {
                 case useCombobox.stateChangeTypes.InputKeyDownEnter:
                 case useCombobox.stateChangeTypes.ItemClick:
-                    setActiveTags([...activeTags, newSelectedItem])
-                    setInputValue(null)
+                    if(!!newSelectedItem) setActiveTags([...activeTags, newSelectedItem])
+                    setInputValue('')
 
                     break
 
                 case useCombobox.stateChangeTypes.InputChange:
-                    setInputValue(newInputValue)
+                    setInputValue(newInputValue || '')
 
                     break
                 default:
@@ -104,7 +104,7 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
                 <ul className='tag-list'>
                     { activeTags.map((tag) => {
                         return (
-                            <TagBubble key={tag.name} tag={tag} tags={tags} showClose={true} onClose={removeSelectedItem} onClick={removeSelectedItem}/>
+                            <TagBubble key={tag.name} tag={tag} showClose={true} onClose={removeSelectedItem} onClick={removeSelectedItem}/>
                         )
                     } ) }
                 </ul>
@@ -128,7 +128,7 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
                                         tags={tags}
                                         onClick={(tag) => setActiveTags([...activeTags, tag])}
                                         highlighted={index === highlightedIndex}
-                                        {...getItemProps({tag, index})}
+                                        {...getItemProps({item: tag, index})}
                                     />
                                 ))
                             }

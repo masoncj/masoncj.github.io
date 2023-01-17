@@ -1,7 +1,7 @@
 
-import { Item } from "../interfaces/item";
+import { Item } from "../interfaces";
 import TagBubble from "./tagBubble";
-import { Tag } from "../interfaces/tag";
+import { Tag } from "../interfaces";
 
 type Props = {
     item: Item,

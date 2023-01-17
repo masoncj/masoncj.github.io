@@ -6,12 +6,11 @@ import path from 'path'
 import * as _ from "lodash";
 
 import { GetStaticProps } from 'next'
-import { Feed } from "../interfaces/feed";
+import { Feed, Tag } from "../interfaces";
 import ItemCard from "../components/itemCard";
 import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { ofTags } from "../utils/tags";
-import { Tag } from "../interfaces/tag";
 import { SearchBox } from "../components/searchBox";
 
 let tags:{[name:string]: Tag} = {}
@@ -39,7 +38,7 @@ export default function Home({feed}: Props) {
   const [activeTags, setActiveTags] = useState(Array<Tag>());
   useEffect(() => {
     setActiveTags(ofTags(router.query, tags))
-  }, [tags, router.query.tags])
+  }, [tags, router.query])
   const updateActiveTags = (tags: Tag[]) => {
     tags = _.uniqBy(tags, 'name');
     router.push({query: { tags: tags.map((tag) => tag.name) } })
@@ -54,7 +53,7 @@ export default function Home({feed}: Props) {
             }).length == activeTags.length
         )
     )
-  }, [activeTagNames]);
+  }, [activeTagNames, activeTags.length, feed.items]);
 
   return (
     <>
