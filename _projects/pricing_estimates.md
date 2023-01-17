@@ -5,9 +5,12 @@ date: 2016-08-01
 last_modified_at: 2023-01-11 0:00:00 +0000
 icon: estimate_icon.png
 tags: 
-  - Machine Learning
-  - Python
-  - Javascript
+  - project
+  - work
+  - software
+  - machine learning
+  - python
+  - javascript
   - D3
 ---
 Individualized insurance patient cost estimates via a combination of machine learning and manual curation.

@@ -4,7 +4,7 @@ title: Provider Portal Revamp
 icon: portal_icon.png
 date: 2019-05-06
 last_modified_at: 2023-01-11 0:00:00 +0000
-tags: 
+tags: project work product Postgres Elasticsearch
 
 ---
 Starting in winter of 2017/2018, I helped lead a small team to develop and launch a new healthcare provider portal for Counsyl (now Myriad).  

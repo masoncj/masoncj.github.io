@@ -3,7 +3,7 @@ layout: post
 title: Events as Currency
 date: 2022-12-29
 icon: noun-river-1667480-3B6BF9.svg
-tags: post architecture tech 
+tags: post work software architecture tech Kafka 
 permalink: posts/2022-12-29-event_arch/
 last_modified_at: 2023-01-11 0:00:00 +0000
 

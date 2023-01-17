@@ -3,7 +3,7 @@ layout: talk
 title: Devops Sandboxes
 date: 2022-04-27
 icon: sandbox_icon.svg
-tags: talk
+tags: talk work infrastructure terraform
 last_modified_at: 2023-01-11 0:00:00 +0000
 
 ---
