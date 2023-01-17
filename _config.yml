@@ -65,6 +65,9 @@ exclude:
   - tsconfig.json
   - node_modules
   - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
 
 
 babel_js_extensions: 'es6'
