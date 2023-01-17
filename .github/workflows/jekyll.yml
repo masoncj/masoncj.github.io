@@ -51,7 +51,7 @@ jobs:
           version: 7.24.3
       - name: Build Next App
         # Outputs to the './_site' directory by default
-        run: pnpm build
+        run: pnpm install && pnpm build
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v1
