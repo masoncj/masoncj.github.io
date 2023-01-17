@@ -64,6 +64,10 @@ exclude:
   - pnpm-lock.yaml
   - tsconfig.json
   - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 exclude:
   - .idea
