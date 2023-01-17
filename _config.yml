@@ -66,18 +66,5 @@ exclude:
   - node_modules
   - vendor
 
-exclude:
-  - .idea
-  - .next
-  - .sass-cache
-  - components
-  - interfaces
-  - pages
-  - next.config.js
-  - next-env.d.ts
-  - package.json
-  - pnpm-lock.yaml
-  - tsconfig.json
-  - node_modules
 
 babel_js_extensions: 'es6'
