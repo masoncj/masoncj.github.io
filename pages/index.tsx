@@ -46,7 +46,16 @@ export default function Home({feed, headHtml, headerHtml, footerHtml}: Props) {
   let router = useRouter();
 
   const [tags, ] = useState(() => {
-    return _.keyBy(_.uniqBy(_.flatMap(feed.items, (item) => item.tags), (tag) => tag.name), (tag) => tag.name);
+    let tags = _.keyBy(_.uniqBy(_.flatMap(feed.items, (item) => item.tags), (tag) => tag.name), (tag) => tag.name);
+    _.values(tags).forEach((tag) => {
+      tag.count = 0
+    })
+    feed.items.forEach((item) => {
+      item.tags.forEach((tag) => {
+        tags[tag.name].count += 1
+      })
+    })
+    return tags
   })
   const [activeTags, setActiveTags] = useState(Array<Tag>());
   useEffect(() => {

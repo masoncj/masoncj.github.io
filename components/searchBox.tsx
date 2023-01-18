@@ -17,9 +17,9 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
     const allTags = useMemo(() => _.values(tags), [tags])
     const [inputValue, setInputValue] = useState('')
 
-    const visibleTags = useMemo(() => allTags.filter((tag) =>
+    const visibleTags = useMemo(() => _.orderBy(allTags.filter((tag) =>
         !inputValue || tag.name.toLowerCase().indexOf(inputValue.toLowerCase()) == 0
-    ), [allTags, inputValue])
+    ), ["count"], ["desc"]), [allTags, inputValue])
 
     const {
         getSelectedItemProps,
@@ -128,6 +128,7 @@ export function SearchBox({tags, activeTags, setActiveTags}:Props) {
                                         tags={tags}
                                         onClick={(tag) => setActiveTags([...activeTags, tag])}
                                         highlighted={index === highlightedIndex}
+                                        showCount={true}
                                         {...getItemProps({item: tag, index})}
                                     />
                                 ))

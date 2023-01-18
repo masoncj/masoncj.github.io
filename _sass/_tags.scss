@@ -24,6 +24,18 @@ div.tagClose {
   border-radius: 6px;
 }
 
+div.tagCount {
+  font-size: 10px;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: 4px;
+  min-width: 8px;
+  height: 10px;
+  border-radius: 6px;
+
+}
+
 li.tag:hover { 
   opacity: 1;
   box-shadow: 2px 2px 2px #00000050;

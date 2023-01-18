@@ -9,7 +9,8 @@ type Props = {
   onClick?: (tag: Tag) => void,
   showClose?: Boolean,
   onClose?: (tag: Tag) => void,
-  highlighted?: Boolean
+  highlighted?: Boolean,
+  showCount?: Boolean,
 }
 
 function hashCode(s: string):number{
@@ -25,6 +26,7 @@ export default function TagBubble(
     showClose = false,
     onClose = (tag: Tag) => {},
     highlighted = false,
+    showCount = false,
   }: Props
 ) {
   const router = useRouter();
@@ -49,6 +51,9 @@ export default function TagBubble(
         onClick={() => onClick(tag)}
     >
         {tag.name}
+      {showCount &&
+        <div className="tagCount" style={{backgroundColor: `hsl(${hue}, 60%, 45%)`}}>{tag.count}</div>
+      }
       {showClose &&
         <div className="tagClose" style={{borderColor: `hsl(${hue}, 90%, 60%)`}} onClick={onCloseClick}>
           &#10005;
