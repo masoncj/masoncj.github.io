@@ -3,7 +3,7 @@ layout: talk
 title: Pricing Estimates
 date: 2017-07-27
 icon: estimate_icon.svg
-tags: talk
+tags: [talk, work, software, machine learning, python]
 last_modified_at: 2023-01-11 0:00:00 +0000
 
 ---

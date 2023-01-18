@@ -1,0 +1,101 @@
+
+
+div.searchBox {
+    height: 40px;
+
+    position: relative;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 14px 6px 11px;
+    gap: 2px;
+
+    background: #F5F5F5;
+    border: 2px solid #E2ADAD;
+    box-shadow: inset 0px 0px 3px 3px #E2ADAD;
+    border-radius: 21px;
+}
+
+.searchIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.searchInput {
+    background-color: transparent;
+    border: none;
+    flex: 1;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .searchInput {
+        font-size: 16px;
+    }
+}
+
+.searchInput:focus-visible {
+    outline: none;
+}
+
+.searchToggle {
+
+}
+
+div.searchMenu {
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    z-index: 20;
+    right: 20px;
+    min-height: 30px;
+    max-height: 300px;
+
+    list-style: none;
+
+    padding-right: 20px;
+    margin-left: 2px;
+    margin-right: 20px;
+
+    flex-wrap: wrap;
+
+    background: #F5F5F5;
+    border: 2px solid #E2ADAD;
+    box-shadow: inset 0px 0px 3px 3px #E2ADAD;
+    border-radius: 0px 0px 20px 20px;
+
+    overflow-y: scroll;
+}
+
+div.searchMenuContents {
+    width: 100%;
+    height: 100%;
+    max-height: 290px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    scrollbar-track-color: transparent;
+
+}
+
+    /* Tag */
+
+    /*box-sizing: border-box;*/
+
+    /*!* Auto layout *!*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*align-items: flex-start;*/
+    /*padding: 3px 6px;*/
+    /*gap: 10px;*/
+
+    /*width: 34px;*/
+    /*height: 17px;*/
+
+    /*background: #7579D2;*/
+    /*border: 1px solid #B8BBEE;*/
+    /*box-shadow: 1px 1px 2px rgba(84, 89, 204, 0.3);*/
+    /*border-radius: 16px;*/
+
+
+

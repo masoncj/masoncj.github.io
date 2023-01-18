@@ -45,9 +45,18 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.24.3
+      - name: Build Next App
+        # Outputs to the './_site' directory by default
+        run: pnpm install && pnpm build
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v1
+        with:
+          path: out
 
   # Deployment job
   deploy:

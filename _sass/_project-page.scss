@@ -1,7 +1,26 @@
 
 .tag-list {
   @import "tags";
-  display: inline-block;
-  
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-left: 0px;
   margin-bottom: 0px;
+  li.tag {
+    display: inline-block;
+  }
+}
+
+.tag-list-raw {
+  @import "tags";
+  li.tag {
+    list-style: none;
+    display: flex;
+  }
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  margin-left: 18px;
+  flex-wrap: wrap;
 }

@@ -4,7 +4,7 @@ title: wiSticky
 date: 2013-10-13
 last_modified_at: 2023-01-11 0:00:00 +0000
 icon: wisticky_icon.svg
-tags: project bluetooth embedded nRF
+tags: project play hardware software bluetooth embedded nRF c++
 
 ---
 

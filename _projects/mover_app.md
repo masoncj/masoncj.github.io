@@ -5,10 +5,14 @@ date: 2015-01-15
 last_modified_at: 2023-01-11 0:00:00 +0000
 icon: mover_app_icon.png
 tags:
-  - Visualization
-  - Robotics
-  - Coffeescript
-  - WebGL
+  - project
+  - software
+  - hardware
+  - work
+  - visualization
+  - robotics
+  - coffeescript
+  - webgl
 ---
 A WebGL 3D user-interface for training robots!
 <!--more-->
