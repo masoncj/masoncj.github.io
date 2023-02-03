@@ -27,6 +27,11 @@ $on-palm:          600px;
 $on-laptop:        800px;
 
 
+%quote {
+  font-family: "Libre Baskerville",serif;
+  font-style: italic;
+  color: #a73e3e;
+}
 
 // Use media queries like this:
 // @include media-query($on-palm) {

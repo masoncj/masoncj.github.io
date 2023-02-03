@@ -210,13 +210,11 @@
 }
 
 %pull-quote {
-  font-family: "Libre Baskerville",serif;
+  @extend %quote;
   font-size: 24px;
-  font-style: italic;
   text-align: center;
   max-width: 300px;	
   margin: 30px;
-  color: #a73e3e;
   span.quote:before {
     content: "“";
     font-size: 38px;
